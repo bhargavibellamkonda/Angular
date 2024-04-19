@@ -1,0 +1,75 @@
+C:\>md demo
+C:\>cd demo
+C:\demo>ng new databind-app
+C:\demo>cd databind-app
+C:\demo\databind-app>ng generate component test
+
+C:\demo\databind-app>code .					src-->App-->test
+
+test.component.ts
+
+
+test.component.css
+
+.red { 
+    color: red; 
+ } 
+ .blue { 
+    color: blue; 
+ }
+
+
+
+
+test.component.ts
+
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-test',
+  templateUrl: './test.component.html',
+  styleUrls: ['./test.component.css']
+})
+export class TestComponent { 
+  myCSSClass = "red"; 
+  applyCSSClass = false; 
+}
+
+test.component.html
+
+<p [class]="myCSSClass">This paragraph class comes from *myClass* property </p> 
+<p [class.blue]="applyCSSClass">This paragraph class does not apply</p>
+
+app.component.html 
+
+<app-test></app-test>
+
+C:\demo\databind-app>npm install querystring
+
+C:\demo\databind-app>ng serve
+
+
+
+-----------------------------------------------------------------------------------------
+
+C:\>md demo
+C:\>cd demo
+C:\demo>ng new databind-app
+C:\demo>cd databind-app
+C:\demo\databind-app>ng generate component test
+
+C:\demo\databind-app>code .					src-->App-->test
+
+test.component.ts
+myColor = 'brown';
+
+test.component.html.
+<p [style.color]="myColor">Text color is styled using style binding</p>
+
+
+app.component.html 
+	
+
+C:\demo\databind-app>npm install querystring
+
+C:\demo\databind-app>ng serve

@@ -1,0 +1,37 @@
+C:\>md demo
+C:\>cd demo
+C:\demo>ng new databind-app
+C:\demo>cd databind-app
+C:\demo\databind-app>ng generate component test
+
+C:\demo\databind-app>code .					src-->App-->test
+
+test.component.ts
+
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-test',
+  templateUrl: './test.component.html',
+  styleUrls: ['./test.component.scss']
+})
+export class TestComponent implements OnInit {
+  appName = "My first app in Angular"; 
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+
+test.component.html
+
+<h1>{{appName}}</h1>
+
+app.component.html 
+
+<app-test></app-test>
+
+C:\demo\databind-app>npm install querystring
+
+C:\demo\databind-app>ng serve

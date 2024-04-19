@@ -1,0 +1,133 @@
+Arithmetical Operations
+
+C:\>md demo
+C:\>cd demo
+C:\demo>ng new databind-app
+C:\demo>cd databind-app
+C:\demo\databind-app>ng generate component test
+C:\demo>code .
+
+test.componet.ts
+
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-test',
+  templateUrl: './test.component.html',
+  styleUrls: ['./test.component.css']
+})
+export class TestComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+  add(a: number, b: number): number {
+    return a + b;
+  }
+
+  subtract(a: number, b: number): number {
+    return a - b;
+  }
+
+  multiply(a: number, b: number): number {
+    return a * b;
+  }
+
+  divide(a: number, b: number): number {
+    if (b === 0) {
+      return NaN; // Handle division by zero
+    }
+    return a / b;
+ }
+
+modulus(a: number, b: number): number {
+    if (b === 0) {
+      return NaN; // Handle division by zero
+    }
+    return a % b;
+  }
+  expo(a: number, b: number): number {
+    if (b === 0) {
+      return NaN; // Handle division by zero
+    }
+    return a ** b;
+  }
+}
+
+test.component.html
+
+<p>Result of arithmetic operations:</p>
+<ul>
+  <li>Addition: {{ add(5, 3) }}</li>
+  <li>Subtraction: {{ subtract(8, 2) }}</li>
+  <li>Multiplication: {{ multiply(4, 6) }}</li>
+  <li>Division: {{ divide(10, 2) }}</li>
+  <li>Modulus: {{ modulus(10, 2) }}</li>
+  <li>Exponentiation: {{ expo(5, 3) }}</li>
+</ul>
+
+app.component.html
+
+<body style="background-color:red;height:400px;">
+<app-test></app-test>
+</body>
+
+
+
+ C:\demo\databind-app> npm install querystring
+
+C:\demo\databind-app>ng serve
+
+
+
+Directives
+
+ngmodel
+
+C:\>md demo
+C:\>cd demo
+C:\demo>ng new databind-app
+C:\demo>cd databind-app
+
+app.component.html
+
+<p>Input something in the input box:</p>
+<p>Name: <input type="text" [(ngModel)]="firstName"></p>
+<p>You wrote: {{ firstName }}</p>
+
+
+
+app.component.ts
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  firstName = 'John';
+}
+
+app.module.ts
+
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms'; // Import this
+
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule 
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }

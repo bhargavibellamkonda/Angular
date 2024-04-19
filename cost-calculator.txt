@@ -1,0 +1,58 @@
+ng generate component cost-calculator
+cost-calculator.component.html
+<h2>Cost Calculator</h2>
+
+Quantity: <input type="number" [(ngModel)]="quantity">
+Price: <input type="number" [(ngModel)]="price">
+
+<p><b>Total in dollar:</b> {{ quantity * price }}</p>
+
+	
+cost-calculator.component.ts
+
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-cost-calculator',
+  templateUrl: './cost-calculator.component.html',
+  styleUrls: ['./cost-calculator.component.css']
+})
+export class CostCalculatorComponent implements OnInit {
+  quantity = 1;
+  price = 5;
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}
+
+/app.module.ts
+
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
+import { AppComponent } from './app.component';
+import { CostCalculatorComponent } from './cost-calculator/cost-calculator.component';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    CostCalculatorComponent
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+app.component.html
+
+<app-cost-calculator></app-cost-calculator>
+
+ng serve --open
