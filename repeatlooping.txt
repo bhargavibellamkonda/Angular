@@ -1,0 +1,39 @@
+
+ng-repeat loop
+
+------------------------------------------------------------------------------------
+C:\>md demo
+C:\>cd demo
+C:\demo>ng new databind-app
+C:\demo>cd databind-app
+C:\demo\databind-app>ng generate component name-list
+C:\demo\databind-app>code .
+---------------------------------------------------------------------------------------------
+name-list.component.html
+	
+<p>Looping with ngFor:</p>
+<ul>
+  <li *ngFor="let name of names">
+    {{ name }}
+  </li>
+</ul>
+--------------------------------------------------------------------------------------------
+name-list.component.ts
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-name-list',
+  templateUrl: './name-list.component.html',
+  styleUrls: ['./name-list.component.css']
+})
+export class NameListComponent {
+  names: string[] = ['Jani', 'Hege', 'Kai'];
+}
+---------------------------------------------------------------------------------------------
+app.component.html
+
+<app-name-list></app-name-list>
+
+
+ng serve --open

@@ -1,0 +1,65 @@
+ngIf
+
+C:\>md demo
+C:\>cd demo
+C:\demo>ng new databind-app
+C:\demo>cd databind-app
+C:\demo\>databind-app>ng generate component ngif-example
+C:\demo\>databind-app>code .
+
+--------------------------------------------------------------------------------------------
+ngif-example.component.html 
+
+<div *ngIf="isVisible">
+  <p>This paragraph will only be visible if isVisible is true.</p>
+</div>
+
+<button (click)="toggleVisibility()">Toggle Visibility</button>
+
+---------------------------------------------------------------------------------------------
+ngif-example.component.ts 
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-ngif-example',
+  templateUrl: './ngif-example.component.html',
+  styleUrls: ['./ngif-example.component.css']
+})
+export class NgifExampleComponent {
+  isVisible: boolean = true;
+
+  toggleVisibility() {
+    this.isVisible = !this.isVisible;
+  }
+}
+-------------------------------------------------------------------------------------------
+
+app.module.ts
+
+
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppComponent } from './app.component';
+import { NgifExampleComponent } from './ngif-example/ngif-example.component';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    NgifExampleComponent
+  ],
+  imports: [
+    BrowserModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+-------------------------------------------------------------------------------------------
+app.component.html
+
+<app-ngif-example></app-ngif-example>
+
+ng serve --open

@@ -1,0 +1,38 @@
+		Age
+-------------------------------------------------------------------------------------------
+C:\>md demo
+C:\>cd demo
+C:\demo>ng new databind-app
+C:\demo>cd databind-app
+C:\demo\databind-app>ng generate component test
+C:\demo>code .
+
+-------------------------------------------------------------------------------------------
+test.componet.ts
+
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-test',
+  templateUrl: './test.component.html',
+  styleUrls: ['./test.component.css']
+})
+export class TestComponent implements OnInit {
+
+  constructor() { }
+  age=45;
+  ngOnInit() {
+  }
+}
+----------------------------------------------------------------------------------------
+test.component.html
+
+<p>Age={{age}}</p>
+-----------------------------------------------------------------------------------------
+app.component.html
+
+<app-test></app-test>
+------------------------------------------------------------------------------------------
+ C:\demo\databind-app> npm install querystring
+
+C:\demo\databind-app>ng serve
