@@ -1,0 +1,62 @@
+App.module.ts
+===================
+
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { TestComponent } from './test/test.component';
+import { FormsModule } from '@angular/forms';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    TestComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+
+
+test.component.html
+====================
+
+<form #userName="ngForm" (ngSubmit)="onClickSubmit(userName.value)">
+    <input type="text"name="username" placeholder="username"ngmodel>
+    <br/>
+    <br/>
+    <input type="submit"value="submit">
+</form>
+
+
+
+test.component.ts
+===================
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-test',
+  templateUrl: './test.component.html',
+  styleUrls: ['./test.component.css']
+})
+export class TestComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+  onClickSubmit(result){
+    console.log("You have entered:"+result.username);
+  }
+
+}
+app.component.html
+====================
+<app-test></app-test>
